@@ -24,7 +24,7 @@ let conexion = (req,res,next)=>{
     });
     req.connection = connection;
     next();
-}// fin coenxion
+}// fin conexion
 
 
 module.exports={
