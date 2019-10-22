@@ -6,11 +6,11 @@
   "scripts": {
     "start": "node serve/serve.js",
     "test": "echo \"Error: no test specified\" && exit 1"
-    
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^3.0.6",
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "express-fileupload": "^1.1.6-alpha.5",

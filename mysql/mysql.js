@@ -10,7 +10,8 @@ let conexion = (req,res,next)=>{
         host     : 'localhost',
         user     : 'root',
         password : '',
-        database : 'sivoge'
+        database : 'sivoge',
+        charset : 'utf8'
       });// fin de crear conexion
     connection.connect( (err)=> {
         if (err) {
