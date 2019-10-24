@@ -11,7 +11,7 @@ app.use(fileUpload({
     useTempFiles: true
 }));
 
-app.put("/upload", conexion, (req, res) => {
+app.post("/upload", conexion, (req, res) => {
     if (!req.files || Object.keys(req.files).length === 0) {
         return res.status(400).json({
             ok: false,
