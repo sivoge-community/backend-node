@@ -2,8 +2,8 @@ const express = require("express");
 const fileUpload = require("express-fileupload");
 const app = express("");
 const {
-    conexion
-} = require("../../mysql/mysql");
+    conexion,session_activa
+} = require('../../mysql/mysql');
 const Papa = require("papaparse");
 const fs = require("fs");
 
@@ -11,7 +11,7 @@ app.use(fileUpload({
     useTempFiles: true
 }));
 
-app.post("/upload", conexion, (req, res) => {
+app.post("/upload", [conexion,session_activa],  (req, res) => {
     if (!req.files || Object.keys(req.files).length === 0) {
         return res.status(400).json({
             ok: false,

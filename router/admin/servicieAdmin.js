@@ -3,13 +3,13 @@ const app = express("");
 const bcrypt = require('bcrypt');
 var mysql = require('mysql');
 const {
-    conexion
-} = require("../../mysql/mysql");
+    conexion,session_activa
+} = require('../../mysql/mysql');
 
 //=====================================
 // Listar  Administrador
 //=====================================
-app.get('/admin', conexion, (req, res) => {
+app.get('/admin', [conexion,session_activa],  (req, res) => {
     //=====================================
     // Query de los datos que voy a mostrar
     //=====================================
@@ -40,7 +40,7 @@ app.get('/admin', conexion, (req, res) => {
 //=====================================
 // Crear Administrador
 //=====================================
-app.post("/admin", conexion, (req, res) => {
+app.post("/admin", [conexion,session_activa],  (req, res) => {
 
     let body = req.body;
     let identificacion = parseInt(body.doc);
@@ -251,7 +251,7 @@ app.post("/admin", conexion, (req, res) => {
 // Modificiar administrador
 //=============================
 
-app.put('/admin/:id', conexion, (req, res) => {
+app.put('/admin/:id', [conexion,session_activa], (req, res) => {
 
     let id = req.params.id;
     let body = req.body;
