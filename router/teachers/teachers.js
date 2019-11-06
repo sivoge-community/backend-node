@@ -5,6 +5,38 @@ const {
     session_activa
 } = require('../../mysql/mysql');
 
+
+//========================
+// Listar teachers 
+//========================
+app.get('/teachers',[conexion,session_activa],(req,res)=>{
+    
+    
+
+    req.connection.query('SELECT * FROM `user` WHERE grade="profesor"',(error,result)=>{
+        if(error){
+            return res.status(500).json({
+                ok:false,
+                message:'No se puedo ejecutar el query',
+                error
+            });
+        }// fin if
+        if(result.length<1){
+            return res.status(500).json({
+                ok:false,
+                message:`No hay registros`
+            });
+        }// fin if
+        else{
+            res.json({
+                ok:true,
+                result:result
+            });
+        }// fin else
+    });// fin connection
+});// fin get
+
+
 //========================
 // Listar teachers por id
 //========================
@@ -55,7 +87,7 @@ app.post('/teachers',[conexion,session_activa],(req,res)=>{
         active: true
     };
 
-    req.connection('INSERT INTO user SET ?',data,(error,result)=>{
+    req.connection.query('INSERT INTO user SET ?',data,(error,result)=>{
         if(error){
             return res.status(500).json({
                 ok:false,
