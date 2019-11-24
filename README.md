@@ -20,6 +20,7 @@ Para hacer uso esta aplicacion con sus modulos usar el comando
 * `/jury`.  Ruta que me permite asignar los jurados para las mesas de votación, con los servicion GET, POST, PUT, y DELETE. 
 * `/session`. Servicio que permite la creación de una session de votación asignando el dia y la hora de inicio y hora de finilización de la votqación.
 * `/teachers`. Servicio para profesores GET, POST, PUT, y DELETE.
-* `/aspirany_type`. Servicio para aspirant_type GET, POST y DELETE.
+* `/aspirant_type`. Servicio para aspirant_type GET, POST y DELETE.
+* `/aspirant`. Servicio para mostrar los avatar de los aspirant el charge_name al cual aspirant y cuenta con los servicios GET, POST, PUT, DELETE.
 
 

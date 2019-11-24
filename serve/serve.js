@@ -36,7 +36,7 @@ app.listen(3000, () => {
     database: 'sivoge',
     charset: 'utf8'
   });
-  var infinyty=setInterval(function () {
+ setInterval(function () {
   
  
   pool.getConnection(function(err, connection) {
@@ -50,7 +50,7 @@ app.listen(3000, () => {
         const now = new Date();
         let date_fecha = date.format(now, 'YYYY-MM-DD'); // => '2015-01-02'
         let hour = date.format(now, 'HH:mm:ss'); // => '23:14:05'
-        console.log("dentro");
+       
     // Use the connection
     connection.query('SELECT * FROM `session`', function (error, result, fields) {
      
@@ -61,8 +61,7 @@ app.listen(3000, () => {
         for (let i = 0; i < json.length; i++) {
           let valor = json[i].date;
           let vectaxu = valor.split("T");
-          console.log(vectaxu[0]);
-          console.log(hour);
+         
           if ((vectaxu[0] === date_fecha && hour === json[i].start_time && hour <=json[i].end_time) || (vectaxu[0] === date_fecha && hour>= json[i].start_time && hour <=json[i].end_time)) {
             connection.query(`UPDATE session SET active=${true}`,(error,result)=>{
               if (error) {
@@ -91,7 +90,7 @@ app.listen(3000, () => {
           }// fin if
         } // fin for
 
-        console.log("Ejecutando");
+       
       
       
       connection.release(); // libero peticion

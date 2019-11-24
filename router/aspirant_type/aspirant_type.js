@@ -83,11 +83,11 @@ app.post('/aspirant_type', [conexion, session_activa], (req, res) => {
     //===========================
     if (charge_name === "concejo" && grade === "tercero") {
         var can_be_representative = {
-            data_garde: 'tercero'
+            data_grade: 'tercero'
 
         }
         var can_vote = {
-            data_garde: [
+            data_grade: [
                 'primero',
                 'segundo',
                 'tercero'
@@ -120,12 +120,12 @@ app.post('/aspirant_type', [conexion, session_activa], (req, res) => {
     //===========================
     //aspirant_type grade el resto
     //===========================
-    if (charge_name === "concejo" && grade === "cuarto" || grade === "quinto" || grade === "sexto" || grade === "septimo" || grade === "octavo" || grade === "noveno" || grade === "decimo") {
+    if (charge_name === "concejo" && (grade === "cuarto" || grade === "quinto" || grade === "sexto" || grade === "septimo" || grade === "octavo" || grade === "noveno" || grade === "decimo")) {
         var can_be_representative = {
-            data_garde: grade
+            data_grade: grade
         }
         var can_vote = {
-            data_garde: grade
+            data_grade: grade
         }
 
         data = {
@@ -193,13 +193,13 @@ app.post('/aspirant_type', [conexion, session_activa], (req, res) => {
     // aspirant_type contralor
     //=========================
 
-    if (charge_name === "contralor" && grade === "decimo" || grade === 'noveno') {
+    if (charge_name === "contralor" && (grade === "decimo" || grade === 'noveno') ){
         var can_be_representative = {
-            data_garde: ['noveno', 'decimo']
+            data_grade: ['noveno', 'decimo']
 
         }
         var can_vote = {
-            data_garde: [
+            data_grade: [
                 'noveno',
                 'decimo'
             ]
@@ -234,11 +234,11 @@ app.post('/aspirant_type', [conexion, session_activa], (req, res) => {
 
     if (charge_name === "personero" && grade === "once") {
         var can_be_representative = {
-            data_garde: 'once'
+            data_grade: 'once'
 
         }
         var can_vote = {
-            data_garde: [
+            data_grade: [
                 'primero',
                 'segundo',
                 'tercero',
@@ -283,11 +283,11 @@ app.post('/aspirant_type', [conexion, session_activa], (req, res) => {
 
     if (charge_name === "profesor" && grade === "profesor") {
         var can_be_representative = {
-            data_garde: 'profesor'
+            data_grade: 'profesor'
 
         }
         var can_vote = {
-            data_garde: [
+            data_grade: [
                 'profesor'
             ]
         }
@@ -334,11 +334,11 @@ app.post('/aspirant_type', [conexion, session_activa], (req, res) => {
 
     if (charge_name === "padre de familia" && grade === "padre de familia") {
         var can_be_representative = {
-            data_garde: 'padre de familia'
+            data_grade: 'padre de familia'
 
         }
         var can_vote = {
-            data_garde: [
+            data_grade: [
                 'padre de familia'
             ]
         }
@@ -404,6 +404,7 @@ app.delete('/aspirant_type/:id',[conexion,session_activa],(req,res)=>{
                 error
             })
         }// fin if
+        
         else{
             res.json({
                 ok:true,
