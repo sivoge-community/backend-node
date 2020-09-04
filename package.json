@@ -18,7 +18,7 @@
     "fast-csv": "^3.4.0",
     "mysql": "github:mysqljs/mysql",
     "nodemon": "^1.19.4",
-    "papaparse": "^5.1.0"
+    "papaparse": "^5.2.0"
   },
   "devDependencies": {},
   "repository": {
